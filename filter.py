@@ -1,22 +1,34 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import os
-import sys
+"""
+    A wonderful piece of software to fix vCard files
+"""
 
 
-unk_index = 0
+def main():
+    """
+    Gravicappa
+    """
+    unk_index = 0
 
-with open('unix.vcf') as f:
-    for line in f:
-        line = line.strip()
+    with open('unix.vcf') as vcf_file:
+        for line in vcf_file:
+            line = line.strip()
 
-        # fix some Android export bugs
-        if line == 'ORG:':
-            # skip it; delete; delete!
-            continue
-        if line == 'N:':
-            line = 'N:' + str(unk_index)
-        if line == 'FN:':
-            line = 'FN:' + str(unk_index)
-        print line
+            # fix some Android export bugs
+            if line == 'ORG:':
+                # skip it; delete; delete!
+                continue
+            if line == 'N:':
+                line = 'N:Unknown_' + str(unk_index)
+                unk_index = unk_index + 1
+            if line == 'FN:':
+                line = 'FN:Unknown_' + str(unk_index)
+                unk_index = unk_index + 1
+            print line
+
+
+if __name__ == '__main__':
+    main()
+
