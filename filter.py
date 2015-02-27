@@ -14,7 +14,7 @@ def main():
 
     with open('unix.vcf') as vcf_file:
         for line in vcf_file:
-            line = line.strip()
+            line = line.rstrip()
 
             # fix some Android export bugs
             if line == 'ORG:':
