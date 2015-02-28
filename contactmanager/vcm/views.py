@@ -1,3 +1,11 @@
-from django.shortcuts import render
+"""
+VCM Views
+"""
+#from django.shortcuts import render
 
-# Create your views here.
+from django.http import HttpResponse
+
+
+def index(request):
+
+    return HttpResponse("QQQ")
