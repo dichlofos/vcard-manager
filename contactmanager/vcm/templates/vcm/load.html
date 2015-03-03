@@ -1,0 +1,12 @@
+<h1>Load vCards</h1>
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'vcm:load' %}" method="post">
+{% csrf_token %}
+    <input type="file" name="vcards" id="vcards-file" />
+    <label for="vcards-file">vCard file</label><br />
+    <input type="submit" value="Load" />
+</form>

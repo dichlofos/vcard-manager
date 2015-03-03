@@ -7,6 +7,7 @@
 
 import vobject
 
+
 def main():
     """
     Gravicappa
@@ -20,10 +21,16 @@ def main():
         #print card.fn.value.encode('utf-8')
         #card.prettyPrint()
         #print card.serialize(lineLength=75)
-        if getattr(card, "tel", None) is None:
+        if getattr(card, "tel", None) is not None:
             for key in card.contents:
                 if key not in ['version', 'n', 'fn', 'photo']:
-                    print card.contents[key]
+                    # кошерно, содержит все повторения атрибута (списком)
+                    values = card.contents[key]
+                    for value in values:
+                        print value
+                    #print card.contents[key]
+        #else:
+        #    print card.tel
 
 
 if __name__ == '__main__':
