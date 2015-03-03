@@ -20,10 +20,7 @@ def main():
         #print card.fn.value.encode('utf-8')
         #card.prettyPrint()
         #print card.serialize(lineLength=75)
-        try:
-            #print 'TEL:', card.tel
-            x = card.tel
-        except AttributeError:
+        if getattr(card, "tel", None) is None:
             for key in card.contents:
                 if key not in ['version', 'n', 'fn', 'photo']:
                     print card.contents[key]
