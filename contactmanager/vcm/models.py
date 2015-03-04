@@ -6,8 +6,8 @@ vCard db models description
 from django.db import models
 
 
-class Contact(models.Model):
-    """Contact data"""
+class Card(models.Model):
+    """Card data"""
     # names, ;-separated (FN)
     family_name = models.CharField(
         max_length=200,
@@ -15,15 +15,14 @@ class Contact(models.Model):
     # from vCard (N)
     display_name = models.CharField(
         max_length=200,
-        required=False,
+        #required=False,
     )
     # birth date, in format YYYY-MM-DD
     bday = models.CharField(
         max_length=12,
-        required=False,
+        #required=False,
     )
     # 1.6 does not support TextField?
     vdata = models.TextField(
-        required=True,
+        #required=True,
     )
-
