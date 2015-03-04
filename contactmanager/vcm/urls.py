@@ -6,4 +6,5 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
     url(r'^cards/$', views.cards, name='cards'),
+    url(r'^load/$', views.load, name='load'),
 )
