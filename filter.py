@@ -21,14 +21,13 @@ def main():
                 # skip it; delete; delete!
                 continue
             if line == 'N:':
-                line = 'N:Unknown_' + str(unk_index)
+                line = 'N:Unknown_' + str(unk_index) + ';;;;'
                 unk_index = unk_index + 1
             if line == 'FN:':
-                line = 'FN:Unknown_' + str(unk_index)
+                line = 'FN:Unknown_' + str(unk_index) + ';;;;'
                 unk_index = unk_index + 1
             print line
 
 
 if __name__ == '__main__':
     main()
-

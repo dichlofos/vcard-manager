@@ -45,17 +45,47 @@ def load(request):
         if count > 100:
             break
 
-        if getattr(card, "tel", None) is not None:
+        y = card.transformToNative()
+        print type(y)
+        print type(y.fn)
+        print type(y.fn.transformToNative())
+        print y.fn
+
+        for key in card.contents:
+            values = card.contents[key]
+            #print values
+            #print type(values[0])
+            #v = values[0]
+
+            # print vobject.vCard(values[0])
+            if key == 'fn':
+                # print card.fn.first
+                """
+                print values
+                value = values
+                if isinstance(values, list):
+                    value = values[0]  # take first
+                card_db.family_name = value.serialize()
+                print type(value)
+                print type(value.value)
+                print value.value
+                print type(card.fn)
+            else:
+                print
+                print type(values[0])
+            else:
+            if key not in ['version', 'fn', 'photo']:
+                # кошерно, содержит все повторения атрибута (списком)
+                values = card.contents[key]
+                for value in values:
+                    print type(value.value)
+                    print value.serialize()
+            """
+
+        #if getattr(card, "tel", None) is not None:
             #card_db.family_name = card.contents['fn'].value.encode('utf-8')  #[0]  # .encode('utf-8')
-            for key in card.contents:
-                if key not in ['version', 'fn', 'photo']:
-                    # кошерно, содержит все повторения атрибута (списком)
-                    values = card.contents[key]
-                    for value in values:
-                        print type(value.value)
-                        print value.serialize()
                     #print card.contents[key]
-            #card_db.save()
+        #card_db.save()
         #else:
         #    print card.tel
 
