@@ -33,7 +33,7 @@ def main():
                 line = 'N:Unknown_' + str(unk_index) + ';;;;'
                 unk_index = unk_index + 1
             elif line == 'FN:':
-                line = 'FN:Unknown_' + str(unk_index) + ';;;;'
+                line = 'FN:Unknown_' + str(unk_index)
                 unk_index = unk_index + 1
             print line
 
