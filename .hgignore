@@ -1,2 +1,3 @@
 .*\.pyc$
 contactmanager/db.sqlite3
+^vcard$
