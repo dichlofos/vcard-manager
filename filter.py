@@ -20,10 +20,19 @@ def main():
             if line == 'ORG:':
                 # skip it; delete; delete!
                 continue
-            if line == 'N:':
+            if not line:
+                continue
+            elif line.startswith('END:VCARD'):
+                print line
+                # skip one empty line between cards, by RFC
+                print
+                continue
+            elif line.startswith('PHOTO;'):
+                line = line.replace('ENCODING=B', 'ENCODING=b')
+            elif line == 'N:':
                 line = 'N:Unknown_' + str(unk_index) + ';;;;'
                 unk_index = unk_index + 1
-            if line == 'FN:':
+            elif line == 'FN:':
                 line = 'FN:Unknown_' + str(unk_index) + ';;;;'
                 unk_index = unk_index + 1
             print line
